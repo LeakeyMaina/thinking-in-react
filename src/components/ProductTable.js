@@ -1,23 +1,16 @@
 //ProductTable(green): displays and filters the data collection based on user input
 import React from "react";
+import ProductList from './ProductList';
 
-import CategoryHeading from "./CategoryHeading";
-import ProductRow from "./ProductRow";
 
-function ProductTable(props) {
-  const rows = [];
-  let lastCategory = null;
-
-  props.products.forEach(product => {
-    if (product.category !== lastCategory) {
-      rows.push(
-        <CategoryHeading category={product.category}  />
-      );
-    }
-    rows.push(<ProductRow product={product} key={product.name} />);
-    lastCategory = product.category;
+function ProductTable({ products }) {
+  const productList = products.map(product => {
+    let lastCategory = product.category;
+    return <fragment>{ProductList(product, lastCategory)}</fragment>;
   });
-  
+
+
+
   return (
     <table>
       <thead>
@@ -26,7 +19,7 @@ function ProductTable(props) {
           <th>Price</th>
         </tr>
       </thead>
-      <tbody>{rows}</tbody>
+      <tbody>{productList}</tbody>
     </table>
   );
 }
