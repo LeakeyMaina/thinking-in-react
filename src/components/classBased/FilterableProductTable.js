@@ -17,6 +17,19 @@ class FilterableProductTable extends React.Component {
     this.handleInStockChange = this.handleInStockChange.bind(this);
   }
 
+  componentDidMount() {
+    this.showDoumentTitle();
+  }
+
+  componentDidUpdate() {
+    this.showDoumentTitle();
+  }
+
+  showDoumentTitle() {
+    document.title = "Class Based Components";
+    document.title.blink();
+  }
+
   handleFilterTextChange(filterText) {
     this.setState({
       filterText: filterText

@@ -8,11 +8,7 @@ function SearchBar({
   onFilterTextChange,
   onInStockChange
 }) {
-  // filterText = { this.state.filterText }
-  // inStockOnly = { this.state.inStockOnly }
-  // onFilterTextChange = { this.handleFilterTextChange }
-  // onInStockChange = { this.handleInStockChange }
-
+  
   return (
     <form>
       <input
